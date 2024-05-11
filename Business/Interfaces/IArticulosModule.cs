@@ -11,5 +11,7 @@ namespace Business.Interfaces
     {
         List<Articulos> listarAarticulos();
         void AgregarArticulo(Articulos articulo);
+        bool eliminarArticulo(int id);
+        void ModificarArticulo(Articulos articulo);
     }
 }
