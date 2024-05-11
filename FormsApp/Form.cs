@@ -1,4 +1,5 @@
-﻿using Business.Interfaces;
+﻿using Business;
+using Business.Interfaces;
 using Business.Models;
 using Business.Modules;
 using System;
@@ -16,12 +17,14 @@ namespace FormsApp
     public partial class Form : System.Windows.Forms.Form
     {
         private ArticulosModule _articulosModule;
+        private IAccesoDatos _accesoDatos;
         public Form()
         {
             InitializeComponent();
 
+            _accesoDatos = new AccesoDatos();
             // Crear una instancia de ArticulosModule
-            _articulosModule = new ArticulosModule();
+            _articulosModule = new ArticulosModule(_accesoDatos);
 
             // Llamar al método listarArticulos y almacenar el resultado en una variable
             List<Articulos> listaDeArticulos = _articulosModule.listarAarticulos();

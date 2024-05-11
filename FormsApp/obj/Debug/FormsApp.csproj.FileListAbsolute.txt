@@ -11,3 +11,16 @@ D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\FormsApp\obj\Debug\FormsApp.csproj.C
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\FormsApp\obj\Debug\FormsApp.csproj.Up2Date
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\FormsApp\obj\Debug\FormsApp.exe
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\FormsApp\obj\Debug\FormsApp.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.csproj.AssemblyReference.cache
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.Form.resources
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.Properties.Resources.resources
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.csproj.GenerateResource.cache
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.csproj.CoreCompileInputs.cache
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.exe
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\bin\Debug\FormsApp.exe.config
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\bin\Debug\FormsApp.exe
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\bin\Debug\FormsApp.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\bin\Debug\Business.dll
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\bin\Debug\Business.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\FormsApp\obj\Debug\FormsApp.csproj.Up2Date

@@ -42,12 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoSQL\AccesoDatos.cs" />
+    <Compile Include="Interfaces\IAccesoDatos.cs" />
     <Compile Include="Interfaces\IArticulosModule.cs" />
+    <Compile Include="Interfaces\ICategoriaModule.cs" />
+    <Compile Include="Interfaces\IImagenesModule.cs" />
+    <Compile Include="Interfaces\IMarcaModule.cs" />
     <Compile Include="Models\Articulos.cs" />
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Imagenes.cs" />
     <Compile Include="Models\Marcas.cs" />
     <Compile Include="Modules\ArticulosModule.cs" />
+    <Compile Include="Modules\CategoriasModule.cs" />
+    <Compile Include="Modules\ImagenesModule.cs" />
+    <Compile Include="Modules\MarcasModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

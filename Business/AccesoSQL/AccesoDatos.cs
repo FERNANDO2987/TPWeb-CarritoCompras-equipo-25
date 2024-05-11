@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
-    public class AccesoDatos
+    public class AccesoDatos :IAccesoDatos
     {
 
         private SqlConnection conexion;

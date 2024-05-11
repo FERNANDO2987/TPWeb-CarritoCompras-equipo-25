@@ -10,3 +10,9 @@ D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\Business\obj\Debug\Business.csproj.A
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\Business\obj\Debug\Business.dll
 D:\ABM_T2_UTN\TP2_Form\TP-WinForm-Equipo-25\Business\obj\Debug\Business.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\bin\Debug\Business.dll
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\bin\Debug\Business.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\obj\Debug\Business.csproj.AssemblyReference.cache
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\obj\Debug\Business.dll
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\Business\obj\Debug\Business.pdb
