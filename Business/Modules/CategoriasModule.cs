@@ -10,24 +10,119 @@ namespace Business.Modules
 {
     public class CategoriasModule : ICategoriaModule
     {
-        public void AgregarCategoria(Categorias categorias)
+        private readonly IAccesoDatos _accesoDatos;
+
+        public CategoriasModule(IAccesoDatos accesoDatos)
         {
-            throw new NotImplementedException();
+
+            _accesoDatos = accesoDatos;
         }
 
+        //Agregar Articulo
+        public void AgregarCategoria(Categorias categorias)
+        {
+            var error = "";
+
+
+            try
+            {
+                _accesoDatos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
+
+                _accesoDatos.setearParametro("@Descripcion", categorias.Descripcion ?? throw new ArgumentException("El código del artículo no puede ser nulo o vacío.", nameof(categorias.Descripcion)));
+              
+            
+
+                _accesoDatos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                error = "Error de conexion de SQL " + ex.Message;
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
+        }
+
+        //Eliminar Categoria
         public bool eliminarCategoria(int id)
         {
-            throw new NotImplementedException();
+          
+            try
+            {
+                _accesoDatos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @Id");
+                _accesoDatos.setearParametro("@Id", id.ToString()); // Convertir el ID a string
+                _accesoDatos.ejecutarLectura(); // Ejecutar la acción de eliminación
+
+                // Si llegamos aquí sin lanzar una excepción, asumimos que la eliminación fue exitosa
+                return true;
+            }
+            catch (Exception ex)
+            {
+               
+                return false;
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion(); // Asegurarnos de cerrar la conexión
+            }
         }
 
         public List<Categorias> listarCategorias()
         {
-            throw new NotImplementedException();
+             var lista = new List<Categorias>();
+
+            try
+            {
+
+                _accesoDatos.setearConsulta("Select Id,Descripcion From CATEGORIAS");
+                _accesoDatos.ejecutarLectura();
+
+                while (_accesoDatos.Lector.Read())
+                {
+                    Categorias aux = new Categorias();
+                    aux.Id = (int)_accesoDatos.Lector["Id"];
+                    aux.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+                   
+
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error de conexion a SQL: " + ex.Message);
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
         }
 
         public void ModificarCategoria(Categorias categorias)
         {
-            throw new NotImplementedException();
+            string error = "";
+
+            try
+            {
+                _accesoDatos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id");
+                _accesoDatos.setearParametro("@Id", categorias.Id.ToString());
+                _accesoDatos.setearParametro("@Descripcion", categorias.Descripcion);
+     
+
+                _accesoDatos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                error = "Error de conexion de SQL " + ex.Message;
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
         }
     }
 }

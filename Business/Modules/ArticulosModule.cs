@@ -122,13 +122,14 @@ namespace Business.Modules
             try
             {
                 _accesoDatos.setearConsulta("UPDATE ARTICULOS SET Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
+                _accesoDatos.setearParametro("@Id", articulo.Id.ToString());
                 _accesoDatos.setearParametro("@Codigo", articulo.Codigo);
                 _accesoDatos.setearParametro("@Nombre", articulo.Nombre);
                 _accesoDatos.setearParametro("@Descripcion", articulo.Descripcion);
                 _accesoDatos.setearParametro("@IdMarca", articulo.IdMarca.ToString());
                 _accesoDatos.setearParametro("@IdCategoria", articulo.IdCategoria.ToString());
                 _accesoDatos.setearParametro("@Precio", articulo.Precio.ToString());
-                _accesoDatos.setearParametro("@Id", articulo.Id.ToString());
+                
 
                 _accesoDatos.ejecutarLectura();
             }
