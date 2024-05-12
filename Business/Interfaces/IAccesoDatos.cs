@@ -16,5 +16,7 @@ namespace Business.Interfaces
         void setearParametro(string nombreParametro, string valor);
         void SetearParametroSeguro(string nombreParametro, string valor);
 
+       
+
     }
 }

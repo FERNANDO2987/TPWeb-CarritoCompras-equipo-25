@@ -10,7 +10,7 @@ namespace Business.Interfaces
      public interface IArticulosModule
     {
         List<Articulos> listarAarticulos();
-        void AgregarArticulo(Articulos articulo);
+        Articulos AgregarArticulo(Articulos articulo);
         bool eliminarArticulo(int id);
         void ModificarArticulo(Articulos articulo);
     }

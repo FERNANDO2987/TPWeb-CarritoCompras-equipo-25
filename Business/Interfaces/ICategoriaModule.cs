@@ -10,7 +10,7 @@ namespace Business.Interfaces
      public interface ICategoriaModule
     {
         List<Categorias> listarCategorias();
-        void AgregarCategoria(Categorias categorias);
+         Categorias AgregarCategoria(Categorias categorias);
 
         bool eliminarCategoria(int id);
         void ModificarCategoria(Categorias categorias);

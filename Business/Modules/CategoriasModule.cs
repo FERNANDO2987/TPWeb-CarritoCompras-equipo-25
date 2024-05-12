@@ -19,20 +19,30 @@ namespace Business.Modules
         }
 
         //Agregar Articulo
-        public void AgregarCategoria(Categorias categorias)
+        public Categorias AgregarCategoria(Categorias categorias)
         {
             var error = "";
+            var result = new Categorias();
 
 
             try
             {
-                _accesoDatos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
+                _accesoDatos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion);  SELECT SCOPE_IDENTITY();");
 
                 _accesoDatos.setearParametro("@Descripcion", categorias.Descripcion ?? throw new ArgumentException("El código del artículo no puede ser nulo o vacío.", nameof(categorias.Descripcion)));
-              
-            
 
+                // Ejecutar la consulta y obtener el ID generado automáticamente
                 _accesoDatos.ejecutarLectura();
+
+                if (_accesoDatos.Lector.HasRows)
+                {
+                    while (_accesoDatos.Lector.Read())
+                    {
+                        result.Id = Convert.ToInt32(_accesoDatos.Lector[0]);
+                        result.Descripcion = categorias.Descripcion;
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -42,6 +52,7 @@ namespace Business.Modules
             {
                 _accesoDatos.cerrarConexion();
             }
+            return result;
         }
 
         //Eliminar Categoria

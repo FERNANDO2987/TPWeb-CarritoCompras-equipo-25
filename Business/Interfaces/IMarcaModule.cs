@@ -10,10 +10,11 @@ namespace Business.Interfaces
     public interface IMarcaModule
     {
         List<Marcas> listarMarcas();
-        void AgregarMarca(Marcas marcas);
+        Marcas AgregarMarca(Marcas marcas);
 
         bool eliminarmarca(int id);
         void ModificarMarca(Marcas marcas);
+
 
     }
 }

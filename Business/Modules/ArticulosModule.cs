@@ -58,14 +58,15 @@ namespace Business.Modules
         }
 
         //Agregar un articulo
-        public void AgregarArticulo(Articulos articulo)
+        public Articulos AgregarArticulo(Articulos articulo)
         {
             var error = "";
+            var result = new Articulos();
             
 
             try
             {
-                _accesoDatos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                _accesoDatos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio);SELECT SCOPE_IDENTITY(); ");
 
                 _accesoDatos.setearParametro("@Codigo", articulo.Codigo ?? throw new ArgumentException("El código del artículo no puede ser nulo o vacío.", nameof(articulo.Codigo)));
                 _accesoDatos.setearParametro("@Nombre", articulo.Nombre ?? throw new ArgumentException("El nombre del artículo no puede ser nulo o vacío.", nameof(articulo.Nombre)));
@@ -75,6 +76,21 @@ namespace Business.Modules
                 _accesoDatos.setearParametro("@Precio", articulo.Precio.ToString() ?? throw new ArgumentException("El precio del artículo no puede ser nulo o vacía.", nameof(articulo.Precio)));
 
                 _accesoDatos.ejecutarLectura();
+
+                if (_accesoDatos.Lector.HasRows)
+                {
+                    while (_accesoDatos.Lector.Read())
+                    {
+                        result.Id = Convert.ToInt32(_accesoDatos.Lector[0]);
+                        result.Codigo = articulo.Codigo;
+                        result.Nombre = articulo.Nombre;
+                        result.Descripcion = articulo.Descripcion;
+                        result.IdMarca = articulo.IdMarca;
+                        result.IdCategoria = articulo.IdCategoria;
+                        result.Precio = articulo.Precio;
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -84,6 +100,8 @@ namespace Business.Modules
             {
                 _accesoDatos.cerrarConexion();
             }
+
+            return result;
         }
 
         //Eliminar articulo
