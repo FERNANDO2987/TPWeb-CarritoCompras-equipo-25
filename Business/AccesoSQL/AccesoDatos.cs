@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
-    public class AccesoDatos :IAccesoDatos
+    public class AccesoDatos : IAccesoDatos
     {
 
         private SqlConnection conexion;
@@ -25,7 +25,7 @@ namespace Business
 
             conexion = new SqlConnection("Server=NB0ZCJDX\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
-        
+
         }
 
         public void setearConsulta(string consulta)
@@ -57,8 +57,8 @@ namespace Business
 
         public void cerrarConexion()
         {
-            if(lector != null)
-            lector.Close();
+            if (lector != null)
+                lector.Close();
             conexion.Close();
         }
 
@@ -80,8 +80,12 @@ namespace Business
                 throw new ArgumentException($"El valor del parámetro '{nombreParametro}' no puede ser nulo o vacío.", nameof(valor));
             }
 
-           setearParametro(nombreParametro, valor);
+            setearParametro(nombreParametro, valor);
         }
+
+      
+
+
 
     }
 }
