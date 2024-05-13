@@ -19,6 +19,7 @@ namespace FormsApp
         private ArticulosModule _articulosModule;
         private IAccesoDatos _accesoDatos;
         private MarcasModule _marcasModule;
+        private DetalleModule _detalleModule;
         public Form()
         {
             InitializeComponent();
@@ -28,12 +29,29 @@ namespace FormsApp
             // Crear una instancia de ArticulosModule
             _articulosModule = new ArticulosModule(_accesoDatos);
             _marcasModule = new MarcasModule(_accesoDatos);
+            _detalleModule = new DetalleModule(_accesoDatos);
+
+           List<ListarArticulosYCategoria> listar= _detalleModule.ListarTodos();
+
+            bool eliminacionExitosa = _marcasModule.eliminarmarca(8);
+            if (eliminacionExitosa)
+            {
+                MessageBox.Show("La marca se eliminó correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("La eliminación de la marca falló.");
+            }
+
             ProbarAgregarMarca();
             // Llamar al método listarArticulos y almacenar el resultado en una variable
             List<Articulos> listaDeArticulos = _articulosModule.listarAarticulos();
 
             // Hacer algo con la lista de artículos, como mostrarla en un DataGridView
-            dataGridView1.DataSource = listaDeArticulos;
+            dataGridView1.DataSource = listar;
+
+        
+
 
         }
 

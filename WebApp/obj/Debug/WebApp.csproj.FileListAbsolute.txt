@@ -116,3 +116,5 @@ D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.cspro
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.csproj.Up2Date
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.dll
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.pdb
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.dll
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.pdb
