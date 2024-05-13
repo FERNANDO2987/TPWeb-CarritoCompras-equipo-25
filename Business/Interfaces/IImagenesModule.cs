@@ -10,7 +10,7 @@ namespace Business.Interfaces
      public interface IImagenesModule
     {
         List<Imagenes> listarImagenes();
-        void AgregarImagenes(Imagenes imagenes);
+        Imagenes AgregarImagenes(Imagenes imagenes);
 
         bool eliminarImagenes(int id);
         void ModificarImagen(Imagenes imagenes);
