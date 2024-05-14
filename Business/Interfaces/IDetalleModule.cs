@@ -12,5 +12,7 @@ namespace Business.Interfaces
         List<ListarArticulosYCategoria> listarXcategoria();
 
         List<ListarArticulosYMarcas> listarXmarcas();
+
+        List<ListarArticulosEimagen> listarArticulosEimagnes();
     }
 }
