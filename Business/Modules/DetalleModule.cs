@@ -15,6 +15,47 @@ namespace Business.Modules
         {
             _accesoDatos = accesoDatos;
         }
+
+        public List<ListarArticulosEimagen> listarArticulosEimagnes()
+        {
+            var listar = new List<ListarArticulosEimagen>();
+
+
+            try
+            {
+
+                _accesoDatos.setearConsulta("SELECT A.*, I.*, I.ImagenURL  FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo\r\n");
+                _accesoDatos.ejecutarLectura();
+
+                while (_accesoDatos.Lector.Read())
+                {
+                    ListarArticulosEimagen aux = new ListarArticulosEimagen();
+                    aux.Id = (int)_accesoDatos.Lector["Id"];
+                    aux.Codigo = (string)_accesoDatos.Lector["Codigo"];
+                    aux.Nombre = (string)_accesoDatos.Lector["Nombre"];
+                    aux.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+                    aux.IdMarca = (int)_accesoDatos.Lector["IdMarca"];
+                    aux.IdCategoria = (int)_accesoDatos.Lector["IdCategoria"];
+                    aux.Precio = (decimal)_accesoDatos.Lector["Precio"];
+                    aux.IdArticulo = (int)_accesoDatos.Lector["IdArticulo"];
+                    aux.ImagenURL = (string)_accesoDatos.Lector["ImagenURL"];
+                    listar.Add(aux);
+
+                }
+
+                return listar;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error de conexion a SQL: " + ex.Message);
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
+        }
+
         public List<ListarArticulosYCategoria> listarXcategoria()
         {
             var listar = new List<ListarArticulosYCategoria>();
