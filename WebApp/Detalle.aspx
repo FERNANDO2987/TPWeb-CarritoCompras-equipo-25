@@ -11,9 +11,9 @@
                     <div class="card">
                         <img src="<%= imagen.ImagenURL %>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Imagen ID: <%= imagen.Id %></h5>
-                            <p class="card-text">Artículo ID: <%= imagen.IdArticulo %></p>
-                            <a href="#Productos.aspx#" class="btn btn-primary">Ver Detalles</a>
+                            <h5 class="card-title">Nombre: <%= imagen.Nombre %></h5>
+                            <p class="card-text">Precio: <%= imagen.Precio %></p>
+                            <a href="Productos.aspx#" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>

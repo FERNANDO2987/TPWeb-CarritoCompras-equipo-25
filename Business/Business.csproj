@@ -50,6 +50,7 @@
     <Compile Include="Interfaces\IMarcaModule.cs" />
     <Compile Include="Models\Articulos.cs" />
     <Compile Include="Models\Categorias.cs" />
+    <Compile Include="Models\ListarArticulosEimagen.cs" />
     <Compile Include="Models\ListarArticulosYCategoria.cs" />
     <Compile Include="Models\Imagenes.cs" />
     <Compile Include="Models\ListarArticulosYMarcas.cs" />

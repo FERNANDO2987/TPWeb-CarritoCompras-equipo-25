@@ -1,0 +1,19 @@
+﻿body {
+
+}
+
+.carrito-img {
+    width: 30px; /* Ajusta el tamaño del icono según sea necesario */
+    height: 30px; /* Ajusta el tamaño del icono según sea necesario */
+    background-image: url('Imagenes/carrito-icono-black.png'); /* Ruta a la imagen de icono del carrito con fondo negro */
+    background-size: contain; /* Ajusta el tamaño de la imagen para que quepa dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    border:hidden; /* Elimina cualquier contorno */
+
+   
+}
+.navbar-dark {
+    opacity: 10; /* Restaura la opacidad al pasar el ratón sobre el enlace */
+    background-color: aqua;
+    
+}

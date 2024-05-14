@@ -14,17 +14,17 @@ namespace WebApp
     public partial class Detalle : System.Web.UI.Page
     {
 
-        protected List<Imagenes> Imagenes { get; set; }
+        protected List<ListarArticulosEimagen> Imagenes { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             // Crear una instancia de AccesoDatos (o de alguna clase que implemente IAccesoDatos)
             IAccesoDatos accesoDatos = new AccesoDatos();
 
             // Crear una instancia de ImagenesModule, pasando el accesoDatos como argumento
-            ImagenesModule moduloImagenes = new ImagenesModule(accesoDatos);
+            DetalleModule moduloDetalle = new DetalleModule(accesoDatos);
 
             // Llamar al método listarImagenes()
-            Imagenes = moduloImagenes.listarImagenes();
+            Imagenes = moduloDetalle.listarArticulosEimagnes();
 
         }
     }
