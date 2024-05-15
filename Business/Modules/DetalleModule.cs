@@ -135,5 +135,57 @@ namespace Business.Modules
                 _accesoDatos.cerrarConexion();
             }
         }
+
+        public DetalleProducto ObtenerDetallePorId(int id)
+        {
+            var detalle = new DetalleProducto();
+            try
+            {
+                _accesoDatos.setearConsulta(@"
+                SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, 
+                       M.Id AS IdMarca, M.Descripcion AS DescripcionMarca, 
+                       C.Id AS IdCategoria, C.Descripcion AS DescripcionCategoria, 
+                       I.ImagenURL 
+                FROM ARTICULOS A 
+                INNER JOIN MARCAS M ON A.IdMarca = M.Id 
+                INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id 
+                LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo 
+                WHERE A.Id = @Id");
+                _accesoDatos.setearParametro("@Id", id.ToString());
+                _accesoDatos.ejecutarLectura();
+
+                if (_accesoDatos.Lector.Read())
+                {
+                    var detalleProducto = new DetalleProducto
+                    {
+                        Id = (int)_accesoDatos.Lector["Id"],
+                        Codigo = (string)_accesoDatos.Lector["Codigo"],
+                        Nombre = (string)_accesoDatos.Lector["Nombre"],
+                        Descripcion = (string)_accesoDatos.Lector["Descripcion"],
+                        Precio = (decimal)_accesoDatos.Lector["Precio"],
+                        IdMarca = (int)_accesoDatos.Lector["IdMarca"],
+                        DescripcionMarca = (string)_accesoDatos.Lector["DescripcionMarca"],
+                        IdCategoria = (int)_accesoDatos.Lector["IdCategoria"],
+                        DescripcionCategoria = (string)_accesoDatos.Lector["DescripcionCategoria"],
+                        ImagenURL = _accesoDatos.Lector["ImagenURL"] != DBNull.Value ? (string)_accesoDatos.Lector["ImagenURL"] : null
+                    };
+
+                    detalle = detalleProducto;
+                    return detalle;
+                }
+                else
+                {
+                    throw new Exception("Producto no encontrado");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el detalle del producto: " + ex.Message);
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
+        }
     }
 }
