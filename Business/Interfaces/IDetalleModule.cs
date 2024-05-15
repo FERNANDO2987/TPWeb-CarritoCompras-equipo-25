@@ -14,5 +14,7 @@ namespace Business.Interfaces
         List<ListarArticulosYMarcas> listarXmarcas();
 
         List<ListarArticulosEimagen> listarArticulosEimagnes();
+
+        DetalleProducto ObtenerDetallePorId(int id);
     }
 }
