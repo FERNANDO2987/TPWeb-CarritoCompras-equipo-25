@@ -28,15 +28,15 @@
                                 <a class="nav-link active" aria-current="page" href="Default.aspx">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Detalle.aspx">Productos</a>
+                                <a class="nav-link" href="Productos.aspx">Productos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <img src="Imagenes/carrito2.png" alt="Carrito" class="carrito-img" style="max-width: 30px;">
+                                    <img src="Content/Imagenes/carrito2.png" alt="Carrito" class="carrito-img" style="max-width: 30px;">
                                 </a>
                             </li>
 
-
+                          
 
 
 
@@ -54,5 +54,6 @@
 
         </div>
     </form>
+
 </body>
 </html>

@@ -109,12 +109,12 @@ D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\roslyn\vbc.exe.con
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\roslyn\vbc.rsp
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\roslyn\VBCSCompiler.exe
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\roslyn\VBCSCompiler.exe.config
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.dll
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.pdb
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.csproj.AssemblyReference.cache
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.csproj.Up2Date
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.dll
 D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\obj\Debug\WebApp.pdb
-D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.dll
-D:\ABM_T2_UTN\TPWeb\TPWeb-CarritoCompras-equipo-25\WebApp\bin\Business.pdb
