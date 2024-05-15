@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Nombre: <%= imagen.Nombre %></h5>
                     <p class="card-text">Precio: <%= imagen.Precio %></p>
-                    <a href="Detalle.aspx#" class="btn btn-primary">Ver Detalles</a>
+                   <a href="Detalle.aspx?id=<%= imagen.IdMarca %>" class="btn btn-primary">Ver Detalles</a>
                 </div>
             </div>
         </div>
