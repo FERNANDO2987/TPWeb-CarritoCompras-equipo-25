@@ -18,6 +18,6 @@ namespace Business.Models
         public int IdCategoria { get; set; }
         public string DescripcionCategoria { get; set; }
         public decimal Precio { get; set; }
-        public string ImagenURL { get; set; }
+        public List<string> ImagenURLs { get; set; } // Lista de URLs de imágenes
     }
 }

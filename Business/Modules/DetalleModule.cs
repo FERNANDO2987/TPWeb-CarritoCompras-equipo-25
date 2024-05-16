@@ -142,41 +142,49 @@ namespace Business.Modules
             try
             {
                 _accesoDatos.setearConsulta(@"
-                SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, 
-                       M.Id AS IdMarca, M.Descripcion AS DescripcionMarca, 
-                       C.Id AS IdCategoria, C.Descripcion AS DescripcionCategoria, 
-                       I.ImagenURL 
-                FROM ARTICULOS A 
-                INNER JOIN MARCAS M ON A.IdMarca = M.Id 
-                INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id 
-                LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo 
-                WHERE A.Id = @Id");
+        SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, 
+               M.Id AS IdMarca, M.Descripcion AS DescripcionMarca, 
+               C.Id AS IdCategoria, C.Descripcion AS DescripcionCategoria, 
+               I.ImagenURL 
+        FROM ARTICULOS A 
+        INNER JOIN MARCAS M ON A.IdMarca = M.Id 
+        INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id 
+        LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo 
+        WHERE A.Id = @Id");
                 _accesoDatos.setearParametro("@Id", id.ToString());
                 _accesoDatos.ejecutarLectura();
 
-                if (_accesoDatos.Lector.Read())
-                {
-                    var detalleProducto = new DetalleProducto
-                    {
-                        Id = (int)_accesoDatos.Lector["Id"],
-                        Codigo = (string)_accesoDatos.Lector["Codigo"],
-                        Nombre = (string)_accesoDatos.Lector["Nombre"],
-                        Descripcion = (string)_accesoDatos.Lector["Descripcion"],
-                        Precio = (decimal)_accesoDatos.Lector["Precio"],
-                        IdMarca = (int)_accesoDatos.Lector["IdMarca"],
-                        DescripcionMarca = (string)_accesoDatos.Lector["DescripcionMarca"],
-                        IdCategoria = (int)_accesoDatos.Lector["IdCategoria"],
-                        DescripcionCategoria = (string)_accesoDatos.Lector["DescripcionCategoria"],
-                        ImagenURL = _accesoDatos.Lector["ImagenURL"] != DBNull.Value ? (string)_accesoDatos.Lector["ImagenURL"] : null
-                    };
+                List<string> imagenesURL = new List<string>(); // Lista para almacenar las URLs de imágenes
 
-                    detalle = detalleProducto;
-                    return detalle;
+                while (_accesoDatos.Lector.Read())
+                {
+                    detalle.Id = (int)_accesoDatos.Lector["Id"];
+                    detalle.Codigo = (string)_accesoDatos.Lector["Codigo"];
+                    detalle.Nombre = (string)_accesoDatos.Lector["Nombre"];
+                    detalle.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+                    detalle.Precio = (decimal)_accesoDatos.Lector["Precio"];
+                    detalle.IdMarca = (int)_accesoDatos.Lector["IdMarca"];
+                    detalle.DescripcionMarca = (string)_accesoDatos.Lector["DescripcionMarca"];
+                    detalle.IdCategoria = (int)_accesoDatos.Lector["IdCategoria"];
+                    detalle.DescripcionCategoria = (string)_accesoDatos.Lector["DescripcionCategoria"];
+
+                    if (_accesoDatos.Lector["ImagenURL"] != DBNull.Value)
+                    {
+                        imagenesURL.Add((string)_accesoDatos.Lector["ImagenURL"]);
+                    }
                 }
-                else
+
+                if (imagenesURL.Count > 0)
+                {
+                    detalle.ImagenURLs = imagenesURL; // Asigna la lista de URLs de imágenes al detalle del producto
+                }
+
+                if (detalle.Id == 0) // Si no se encontró el producto
                 {
                     throw new Exception("Producto no encontrado");
                 }
+
+                return detalle;
             }
             catch (Exception ex)
             {
@@ -187,5 +195,6 @@ namespace Business.Modules
                 _accesoDatos.cerrarConexion();
             }
         }
+
     }
 }
