@@ -23,13 +23,13 @@
     <div class="row" id="imageContainer">
         <% foreach (var imagen in Imagenes)
             { %>
-        <div class="col-md-4 image-card" data-nombre="<%= imagen.Nombre %>" data-precio="<%= imagen.Precio %>">
+        <div class="col-md-4">
             <div class="card">
-                <img src="<%= imagen.ImagenURL %>" class="card-img-top" alt="...">
+                <img src="<%= imagen.ImagenURL %>" class="card-img-top" alt="<%= imagen.Nombre %> Image">
                 <div class="card-body">
                     <h5 class="card-title">Nombre: <%= imagen.Nombre %></h5>
                     <p class="card-text">Precio: <%= imagen.Precio %></p>
-                   <a href="Detalle.aspx?id=<%= imagen.IdMarca %>" class="btn btn-primary">Ver Detalles</a>
+                   <a href="Detalle.aspx?id=<%= imagen.Id %>" class="btn btn-primary">Ver Detalles</a>
                 </div>
             </div>
         </div>

@@ -1,32 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Detalle.aspx.cs" Inherits="WebApp.Detalle" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        #imageContainer {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        #imageContainer img {
+            width: 40%;
+            height: auto;
+            display: none; /* Oculta todas las imágenes por defecto */
+            transition: opacity 0.5s ease;
+        }
+        #imageContainer img:first-child {
+            display: block; /* Muestra solo la primera imagen al cargar */
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container mt-4">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Detalles del Producto</h1>
-            <div id="productDetails">
-                <% 
-                    if (detalleProducto != null)
-                    { %>
-                        <div class="card">
-                            <img src="<%= detalleProducto.ImagenURL %>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Nombre: <%= detalleProducto.Nombre %></h5>
-                                <p class="card-text">Precio: <%= detalleProducto.Precio %></p>
-                                <p class="card-text">Descripción: <%= detalleProducto.Descripcion %></p>
-                            </div>
-                        </div>
-                    <% }
-                    else
-                    { %>
-                        <p>Producto no encontrado.</p>
-                    <% }
-                %>
-            </div>
+    <asp:Panel ID="ProductDetailsPanel" runat="server" Visible="false">
+        <h1><asp:Label ID="lblProductName" runat="server" /></h1>
+        <p><asp:Label ID="lblProductDescription" runat="server" /></p>
+        <div id="imageContainer">
+            <asp:Repeater ID="rptImages" runat="server">
+                <ItemTemplate>
+                    <img src='<%# Container.DataItem %>' alt="Product Image" />
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
-    </div>
-</div>
+        <!-- Cambiamos el tipo de botones de "submit" a "button" -->
+        <button type="button" id="btnPrev" onclick="showPrevImage()">Previous</button>
+        <button type="button" id="btnNext" onclick="showNextImage()">Next</button>
+    </asp:Panel>
+
+    <asp:Label ID="lblMessage" runat="server" ForeColor="Red" Visible="false" />
+
+    <script src="Script/JavaScriptNavegacion.js"></script>
 </asp:Content>

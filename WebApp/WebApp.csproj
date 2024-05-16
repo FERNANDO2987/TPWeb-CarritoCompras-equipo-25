@@ -75,6 +75,7 @@
     <Content Include="Content\Imagenes\carrito2.png" />
     <Content Include="Productos.aspx" />
     <Content Include="Script\JavaScriptFiltro.js" />
+    <Content Include="Script\JavaScriptNavegacion.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

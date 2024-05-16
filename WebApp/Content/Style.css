@@ -17,3 +17,9 @@
     background-color: aqua;
     
 }
+
+.card-img-top {
+    width: 50%; /* Asegura que la imagen ocupe el ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    object-fit: cover; /* Corta la imagen para llenar el contenedor sin distorsión */
+

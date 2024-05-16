@@ -15,36 +15,50 @@ namespace WebApp
     {
 
         protected DetalleProducto detalleProducto { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 string idParam = Request.QueryString["id"];
                 if (!string.IsNullOrEmpty(idParam) && int.TryParse(idParam, out int productoId))
                 {
-                    // Crear una instancia de AccesoDatos (o de alguna clase que implemente IAccesoDatos)
-                    IAccesoDatos accesoDatos = new AccesoDatos();
-
-                    // Crear una instancia de DetalleModule, pasando accesoDatos como argumento
-                    DetalleModule moduloDetalle = new DetalleModule(accesoDatos);
-
-                    // Obtener los detalles del producto por ID
-                    detalleProducto = moduloDetalle.ObtenerDetallePorId(productoId);
-
-                    if (detalleProducto == null)
+                    try
                     {
-                        // Manejar el caso en que el producto no se encuentra
-                        Response.Write("<p>Producto no encontrado.</p>");
+                        IAccesoDatos accesoDatos = new AccesoDatos();
+                        DetalleModule moduloDetalle = new DetalleModule(accesoDatos);
+                        detalleProducto = moduloDetalle.ObtenerDetallePorId(productoId);
+
+                        if (detalleProducto != null)
+                        {
+                            lblProductName.Text = detalleProducto.Nombre;
+                            lblProductDescription.Text = detalleProducto.Descripcion;
+
+                            // Bind the repeater to display all images
+                            rptImages.DataSource = detalleProducto.ImagenURLs;
+                            rptImages.DataBind();
+
+                            ProductDetailsPanel.Visible = true;
+                        }
+                        else
+                        {
+                            lblMessage.Text = "Producto no encontrado.";
+                            lblMessage.Visible = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMessage.Text = "Ocurrió un error al obtener los detalles del producto. Inténtalo de nuevo más tarde.";
+                        lblMessage.Visible = true;
                     }
                 }
                 else
                 {
-                    // Manejar el caso en que no se proporciona un ID válido
-                    Response.Write("<p>ID de producto no especificado o inválido.</p>");
+                    lblMessage.Text = "ID de producto no especificado o inválido.";
+                    lblMessage.Visible = true;
                 }
             }
-
         }
+
     }
 }
