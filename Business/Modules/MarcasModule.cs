@@ -61,7 +61,7 @@ namespace Business.Modules
                 _accesoDatos.setearParametro("@Id", id.ToString()); // Convertir el ID a string
                 _accesoDatos.ejecutarLectura(); // Ejecutar la acción de eliminación
 
-                // Si llegamos aquí sin lanzar una excepción, asumimos que la eliminación fue exitosa
+               
                 return true;
             }
             catch (Exception ex)
@@ -71,8 +71,7 @@ namespace Business.Modules
             }
             finally
             {
-                _accesoDatos.cerrarConexion(); // Asegurarnos de cerrar la conexión
-            }
+                _accesoDatos.cerrarConexion();
         }
 
         public List<Marcas> listarMarcas()
