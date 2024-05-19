@@ -1,37 +1,61 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Detalle.aspx.cs" Inherits="WebApp.Detalle" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        #imageContainer {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        #imageContainer img {
-            width: 40%;
-            height: auto;
-            display: none; /* Oculta todas las imágenes por defecto */
-            transition: opacity 0.5s ease;
-        }
-        #imageContainer img:first-child {
-            display: block; /* Muestra solo la primera imagen al cargar */
-        }
-    </style>
+
+    <link href="Content/Style/StyleDetalle.css" rel="stylesheet" />
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:Panel ID="ProductDetailsPanel" runat="server" Visible="false">
-        <h1><asp:Label ID="lblProductName" runat="server" /></h1>
-        <p><asp:Label ID="lblProductDescription" runat="server" /></p>
-        <div id="imageContainer">
-            <asp:Repeater ID="rptImages" runat="server">
-                <ItemTemplate>
-                    <img src='<%# Container.DataItem %>' alt="Product Image" />
-                </ItemTemplate>
-            </asp:Repeater>
+        <div class="container">
+            <h1>Detalle del Articulo</h1>
+
         </div>
-        <!-- Cambiamos el tipo de botones de "submit" a "button" -->
-        <button type="button" id="btnPrev" onclick="showPrevImage()">Previous</button>
-        <button type="button" id="btnNext" onclick="showNextImage()">Next</button>
+        <div class="container3">
+            <h1>
+                <asp:Label ID="lblNombre" runat="server" /></h1>
+        </div>
+
+        <div class="container2">
+
+
+
+            <div id="imageContainer">
+                <asp:Repeater ID="rptImages" runat="server">
+                    <ItemTemplate>
+                        <img src='<%# Container.DataItem %>' alt="Product Image" class="product-image" />
+                    </ItemTemplate>
+
+
+                </asp:Repeater>
+                <p>
+                    <span class="bold-text">Codigo:</span>
+                    <asp:Label ID="lblCodigo" runat="server" />
+                </p>
+                <p>
+                    <span class="bold-text">Precio:</span>
+                    <asp:Label ID="lblPrecio" runat="server" />
+                </p>
+                <p>
+                    <span class="bold-text">Descripción:</span>
+                    <asp:Label ID="lblDescripcion" runat="server" />
+                </p>
+                <p>
+                    <span class="bold-text">Marca:</span>
+                    <asp:Label ID="lblMarca" runat="server" />
+                </p>
+                <p>
+                    <span class="bold-text">Categoria:</span>
+                    <asp:Label ID="lblCategoria" runat="server" />
+                </p>
+
+
+                <!-- Cambiamos el tipo de botones de "submit" a "button" -->
+                <button type="button" id="btnPrev" onclick="showPrevImage()" class="btn btn-primary">Previous</button>
+                <button type="button" id="btnNext" onclick="showNextImage()" class="btn btn-primary">Next</button>
+            </div>
+        </div>
     </asp:Panel>
 
     <asp:Label ID="lblMessage" runat="server" ForeColor="Red" Visible="false" />

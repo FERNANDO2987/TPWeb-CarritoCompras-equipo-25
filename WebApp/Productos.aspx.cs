@@ -17,10 +17,10 @@ namespace WebApp
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            // Crear una instancia de AccesoDatos (o de alguna clase que implemente IAccesoDatos)
+            // Crear una instancia de AccesoDatos 
             IAccesoDatos accesoDatos = new AccesoDatos();
 
-            // Crear una instancia de ImagenesModule, pasando el accesoDatos como argumento
+            // Crear una instancia de ImagenesModule, pasando el accesoDatos
             DetalleModule moduloDetalle = new DetalleModule(accesoDatos);
 
             // Llamar al método listarImagenes()
@@ -28,5 +28,9 @@ namespace WebApp
 
 
         }
+
+
+      
+
     }
 }

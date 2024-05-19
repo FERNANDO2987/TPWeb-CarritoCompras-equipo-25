@@ -31,8 +31,12 @@ namespace WebApp
 
                         if (detalleProducto != null)
                         {
-                            lblProductName.Text = detalleProducto.Nombre;
-                            lblProductDescription.Text = detalleProducto.Descripcion;
+                            lblNombre.Text = detalleProducto.Nombre;
+                            lblCodigo.Text = detalleProducto.Codigo;
+                            lblPrecio.Text = detalleProducto.Precio.ToString();
+                            lblDescripcion.Text = detalleProducto.Descripcion;
+                            lblMarca.Text = detalleProducto.DescripcionMarca;
+                            lblCategoria.Text = detalleProducto.DescripcionCategoria;
 
                             // Bind the repeater to display all images
                             rptImages.DataSource = detalleProducto.ImagenURLs;
@@ -48,13 +52,13 @@ namespace WebApp
                     }
                     catch (Exception ex)
                     {
-                        lblMessage.Text = "Ocurrió un error al obtener los detalles del producto. Inténtalo de nuevo más tarde.";
+                        lblMessage.Text = "Error al obtener los detalles del producto. Inténtalo de nuevo más tarde.";
                         lblMessage.Visible = true;
                     }
                 }
                 else
                 {
-                    lblMessage.Text = "ID de producto no especificado o inválido.";
+                    lblMessage.Text = "ID de producto no inválido.";
                     lblMessage.Visible = true;
                 }
             }
