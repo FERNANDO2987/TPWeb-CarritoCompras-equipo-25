@@ -73,10 +73,12 @@
     <Content Include="Content\Style\StyleCarrito.css" />
     <Content Include="Content\Style\StyleDetalle.css" />
     <Content Include="Content\Style\StyleMasterPage.css" />
+    <Content Include="Content\Style\StyleMiApp.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Productos.aspx" />
+    <Content Include="Script\AgregarCarrito.js" />
     <Content Include="Script\Filtro.js" />
     <Content Include="Script\JavaScriptNavegacion.js" />
     <Content Include="Web.config" />

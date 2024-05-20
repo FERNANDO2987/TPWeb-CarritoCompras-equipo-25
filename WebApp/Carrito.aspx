@@ -29,6 +29,7 @@
                                     </asp:DropDownList>
                                     <asp:Label ID="lblSubtotal" runat="server" Text='<%# "Subtotal: $" + Eval("Subtotal") %>' CssClass="d-block mt-2"></asp:Label>
                                     <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CommandArgument='<%# Eval("Id") %>' OnCommand="btnEliminar_Command" CssClass="btn btn-danger mt-2" />
+                                              
                                 </div>
                             </div>
                         </div>
@@ -39,6 +40,8 @@
         </div>
         <div class="mt-4">
             <h3>Total a Pagar: $<asp:Label ID="lblTotal" runat="server" Text="0"></asp:Label></h3>
+        
         </div>
+   
     </div>
 </asp:Content>

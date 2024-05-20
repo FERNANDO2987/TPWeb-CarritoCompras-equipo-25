@@ -27,7 +27,10 @@ namespace WebApp
             Imagenes = moduloDetalle.listarArticulosEimagnes();
 
 
+
+
         }
+
 
 
       

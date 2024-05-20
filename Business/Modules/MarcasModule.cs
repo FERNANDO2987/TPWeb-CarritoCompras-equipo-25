@@ -14,7 +14,7 @@ namespace Business.Modules
         private IAccesoDatos _accesoDatos;
         public MarcasModule(IAccesoDatos accesoDatos)
         {
-           _accesoDatos = accesoDatos;
+            _accesoDatos = accesoDatos;
         }
 
         public Marcas AgregarMarca(Marcas marcas)
@@ -61,7 +61,7 @@ namespace Business.Modules
                 _accesoDatos.setearParametro("@Id", id.ToString()); // Convertir el ID a string
                 _accesoDatos.ejecutarLectura(); // Ejecutar la acción de eliminación
 
-               
+
                 return true;
             }
             catch (Exception ex)
@@ -72,65 +72,67 @@ namespace Business.Modules
             finally
             {
                 _accesoDatos.cerrarConexion();
+            }
         }
 
-        public List<Marcas> listarMarcas()
-        {
-            var lista = new List<Marcas>();
+            public List<Marcas> listarMarcas()
+            {
+                var lista = new List<Marcas>();
 
-            try
+                try
+                {
+
+                    _accesoDatos.setearConsulta("Select Id,Descripcion From MARCAS");
+                    _accesoDatos.ejecutarLectura();
+
+                    while (_accesoDatos.Lector.Read())
+                    {
+                        Marcas aux = new Marcas();
+                        aux.Id = (int)_accesoDatos.Lector["Id"];
+                        aux.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+
+
+                        lista.Add(aux);
+
+                    }
+
+                    return lista;
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error de conexion a SQL: " + ex.Message);
+                }
+                finally
+                {
+                    _accesoDatos.cerrarConexion();
+                }
+            }
+
+            public void ModificarMarca(Marcas marcas)
             {
 
-                _accesoDatos.setearConsulta("Select Id,Descripcion From MARCAS");
-                _accesoDatos.ejecutarLectura();
+                string error = "";
 
-                while (_accesoDatos.Lector.Read())
+                try
                 {
-                    Marcas aux = new Marcas();
-                    aux.Id = (int)_accesoDatos.Lector["Id"];
-                    aux.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+                    _accesoDatos.setearConsulta("UPDATE MARCAS SET Descripcion = @Descripcion WHERE Id = @Id");
+                    _accesoDatos.setearParametro("@Id", marcas.Id.ToString());
+                    _accesoDatos.setearParametro("@Descripcion", marcas.Descripcion);
 
 
-                    lista.Add(aux);
-
+                    _accesoDatos.ejecutarLectura();
+                }
+                catch (Exception ex)
+                {
+                    error = "Error de conexion de SQL " + ex.Message;
+                }
+                finally
+                {
+                    _accesoDatos.cerrarConexion();
                 }
 
-                return lista;
             }
-            catch (Exception ex)
-            {
-
-                throw new Exception("Error de conexion a SQL: " + ex.Message);
-            }
-            finally
-            {
-                _accesoDatos.cerrarConexion();
-            }
-        }
-
-        public void ModificarMarca(Marcas marcas)
-        {
-
-            string error = "";
-
-            try
-            {
-                _accesoDatos.setearConsulta("UPDATE MARCAS SET Descripcion = @Descripcion WHERE Id = @Id");
-                _accesoDatos.setearParametro("@Id", marcas.Id.ToString());
-                _accesoDatos.setearParametro("@Descripcion", marcas.Descripcion);
-
-
-                _accesoDatos.ejecutarLectura();
-            }
-            catch (Exception ex)
-            {
-                error = "Error de conexion de SQL " + ex.Message;
-            }
-            finally
-            {
-                _accesoDatos.cerrarConexion();
-            }
-
         }
     }
-}
+

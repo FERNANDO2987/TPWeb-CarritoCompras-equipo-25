@@ -32,8 +32,9 @@
                     <h5 class="card-title">Nombre: <%= imagen.Nombre %></h5>
                     <p class="card-text">Precio: <%= imagen.Precio %></p>
                     <a href="Detalle.aspx?id=<%= imagen.Id %>" class="btn btn-primary">Ver Detalles</a>
-                   <a href="Carrito.aspx?id=<%= imagen.Id %>&nombre=<%= imagen.Nombre %>&precio=<%= imagen.Precio %>&imagenURL=<%= imagen.ImagenURL %>" class="btn btn-primary">Agregar al Carrito</a>
-
+              
+                  <button class="btn btn-primary add-to-cart" data-id="<%= imagen.Id %>" data-nombre="<%= imagen.Nombre %>" data-precio="<%= imagen.Precio %>" data-imagenURL="<%= imagen.ImagenURL %>">Agregar al Carrito</button>
+                  
                 </div>
             </div>
         </div>
@@ -44,6 +45,8 @@
 
 
     <script src="Script/Filtro.js"></script>
+
+    <script src="Script/AgregarCarrito.js"></script>
 
   
 </asp:Content>
