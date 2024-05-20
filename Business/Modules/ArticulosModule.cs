@@ -161,7 +161,69 @@ namespace Business.Modules
         }
 
 
+        public List<DetalleProducto> ObtenerListaDeArticulos()
+        {
+            var lista = new List<DetalleProducto>();
+            try
+            {
+                _accesoDatos.setearConsulta(@"
+                 SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, 
+                 M.Id AS IdMarca, M.Descripcion AS DescripcionMarca, 
+                 C.Id AS IdCategoria, C.Descripcion AS DescripcionCategoria, 
+                I.ImagenURL 
+                FROM ARTICULOS A 
+                INNER JOIN MARCAS M ON A.IdMarca = M.Id 
+                INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id 
+                LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo
+");
 
+             
+                _accesoDatos.ejecutarLectura();
+
+                List<string> imagenesURL = new List<string>(); // Lista para almacenar las URLs de imágenes
+
+                while (_accesoDatos.Lector.Read())
+                {
+                    DetalleProducto aux = new DetalleProducto();
+                    aux.Id = (int)_accesoDatos.Lector["Id"];
+                    aux.Codigo = (string)_accesoDatos.Lector["Codigo"];
+                    aux.Nombre = (string)_accesoDatos.Lector["Nombre"];
+                    aux.Descripcion = (string)_accesoDatos.Lector["Descripcion"];
+                    aux.Precio = (decimal)_accesoDatos.Lector["Precio"];
+                    aux.IdMarca = (int)_accesoDatos.Lector["IdMarca"];
+                    aux.DescripcionMarca = (string)_accesoDatos.Lector["DescripcionMarca"];
+                    aux.IdCategoria = (int)_accesoDatos.Lector["IdCategoria"];
+                    aux.DescripcionCategoria = (string)_accesoDatos.Lector["DescripcionCategoria"];
+
+
+                    lista.Add(aux);
+                    if (_accesoDatos.Lector["ImagenURL"] != DBNull.Value)
+                    {
+                        imagenesURL.Add((string)_accesoDatos.Lector["ImagenURL"]);
+                    }
+                }
+
+                if (imagenesURL.Count > 0)
+                {
+                    lista.First().ImagenURLs = imagenesURL; // Asigna la lista de URLs de imágenes al detalle del producto
+                }
+
+                if (lista.First().Id== 0) // Si no se encontró el producto
+                {
+                    throw new Exception("Producto no encontrado");
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el detalle del producto: " + ex.Message);
+            }
+            finally
+            {
+                _accesoDatos.cerrarConexion();
+            }
+        }
 
     }
 }

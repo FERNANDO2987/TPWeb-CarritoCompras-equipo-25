@@ -24,7 +24,7 @@ namespace Business.Modules
             try
             {
 
-                _accesoDatos.setearConsulta("SELECT A.*, I.*, I.ImagenURL  FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo\r\n");
+                _accesoDatos.setearConsulta("SELECT A.*, I.*, I.ImagenURL  FROM ARTICULOS A INNER JOIN IMAGENES I ON A.Id = I.IdArticulo");
                 _accesoDatos.ejecutarLectura();
 
                 while (_accesoDatos.Lector.Read())

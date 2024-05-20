@@ -15,7 +15,7 @@ namespace Business.Models
         public int IdMarca { get; set; }
         public int IdCategoria { get; set; }
         public decimal Precio { get; set; }
-        public string DescripcionMarca { get; set; }
+     
         public int IdArticulo { get; set; }
         public string ImagenURL { get; set; }
 

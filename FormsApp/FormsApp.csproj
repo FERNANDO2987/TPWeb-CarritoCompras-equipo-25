@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form.cs">
+    <Compile Include="FormAgregarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form.Designer.cs">
-      <DependentUpon>Form.cs</DependentUpon>
+    <Compile Include="FormAgregarCategoria.Designer.cs">
+      <DependentUpon>FormAgregarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModificarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificarCategoria.Designer.cs">
+      <DependentUpon>FormModificarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarMarca.Designer.cs">
+      <DependentUpon>FormAgregarMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form.resx">
-      <DependentUpon>Form.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

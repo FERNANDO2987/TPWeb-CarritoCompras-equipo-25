@@ -13,5 +13,6 @@ namespace Business.Interfaces
         Articulos AgregarArticulo(Articulos articulo);
         bool eliminarArticulo(int id);
         void ModificarArticulo(Articulos articulo);
+        List<DetalleProducto> ObtenerListaDeArticulos();
     }
 }
